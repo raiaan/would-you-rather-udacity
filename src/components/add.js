@@ -38,6 +38,7 @@ class Add extends React.Component{
     render(){
         return (
           <form onSubmit={this.handleSubmit} className="add-question">
+              <h1>Would You Rather</h1>
             <div>
              <textarea
                 type="text"

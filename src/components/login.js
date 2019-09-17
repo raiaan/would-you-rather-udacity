@@ -14,12 +14,9 @@ class Login extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit=()=>{
-        const {authedId} = this.state
-        const{dispatch , users} = this.props
-        if(authedId)
-            {
-                dispatch(setAuthedUser(authedId))
-                dispatch(handleInitialData(authedId,users))
+        if(this.state.authedId)
+            {   
+                this.props.dispatch(setAuthedUser(this.state.authedId))
                 this.setState({
                    isLogged:true
                 })
@@ -27,17 +24,18 @@ class Login extends React.Component{
         else alert('please seelect a user')
     }
     handleChange=(e)=>{
-        console.log(this.props)
+        const{dispatch , users} = this.props
         this.setState({
             authedId: e.target.value
         })
+        dispatch(handleInitialData(e.target.value,users))
     }
     componentDidMount(){
         this.props.dispatch(handleInitialUsers())
     }
     render(){
         if(this.state.isLogged && this.props.location.state.backLink){
-            if(this.props.backLink ==='unanswered')
+            if(this.props.location.state.backLink ==='unanswered')
                 return <Redirect to='/'/>
             return <Redirect to={this.props.location.state.backLink}/>
             

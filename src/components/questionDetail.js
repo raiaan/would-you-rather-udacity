@@ -3,9 +3,13 @@ import Question from './questionItem'
 class QuestionPage extends Component{
 	render(){
 		return (
-			<Question id ={this.props.match.params.id} details ={true}/>
+			<div>
+				<h1>Would You Rather</h1>
+				<Question id ={this.props.match.params.id} details ={true}/>
+			</div>
 			
 			)
 	}
 }
+
 export default QuestionPage

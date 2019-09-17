@@ -24,6 +24,18 @@ code {
 }
 .nav-bar>span {
   padding: 10px 
+}H1,h2{
+  text-align: center
+}table,tr,td{
+  border:1px solid black;
+  border-collapse: collapse;
+  margin : 10px 0px
+}
+td{
+  padding: 5px 10px
+}td >P{
+  font: 25px;
+  font-weight: 500
 }
 .nav-item{
   display: inline-block;
@@ -38,7 +50,7 @@ li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
-}.question-item{
+}.question-item,.leader-info{
   width: 100%;
   max-width: 590px;
   padding: 10px;
@@ -51,7 +63,7 @@ li {
   height: 50px;
   border-radius: 25px;
   margin: 10px;
-}.question-info{
+}.question-info {
   margin: 10px;
   display: flex;
   flex-direction: column;

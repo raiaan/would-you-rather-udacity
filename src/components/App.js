@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavBar } from "./nav";
-import  Unanswered  from "./unanswered";
+import  Unanswered  from "./unanswered"; 
 import Answered from './answered';
 import Add from './add'
 import QuestionPage from "./questionDetail";
@@ -8,6 +8,7 @@ import {connect} from 'react-redux'
 import { BrowserRouter as Router, Route ,Redirect} from 'react-router-dom'
 import LoadingBar from "react-redux-loading";
 import Login from './login'
+import LeaderBoard from './leaderBoard'
 class App extends React.Component {
 	render(){
     const {authedUser} = this.props
@@ -38,6 +39,12 @@ class App extends React.Component {
                       <Redirect to={{
                         pathname: '/login',
                         state: { backLink: '/answered' }
+                      }} />
+                     )} />
+              <Route path='/leaderboard' render={()=>(authedUser? <LeaderBoard />:
+                      <Redirect to={{
+                        pathname: '/login',
+                        state: { backLink: '/leaderboard' }
                       }} />
                      )} />
               <Route path='/add'  render={()=>(authedUser? <Add />:
