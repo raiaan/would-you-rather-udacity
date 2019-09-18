@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route ,Redirect} from 'react-router-dom'
 import LoadingBar from "react-redux-loading";
 import Login from './login'
 import LeaderBoard from './leaderBoard'
+import { dispatch } from 'rxjs/internal/observable/range';
 class App extends React.Component {
 	render(){
     const {authedUser} = this.props
@@ -17,7 +18,7 @@ class App extends React.Component {
       <Router >
           <div className='container'>
            {
-             authedUser? <NavBar username = {this.props.users[authedUser]['name']}/>:null
+             authedUser? <NavBar username = {this.props.users[authedUser]['name']} dispatch={this.props.dispatch}/>:null
            } 
           <LoadingBar />
             

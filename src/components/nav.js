@@ -1,7 +1,10 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import {setAuthedUser} from '../actions/authedUser'
 
 export const NavBar = (props) => {
+  console.log(props);
+  
   return (
     <div className="nav-bar">
       <ul className="nav-list">
@@ -26,7 +29,11 @@ export const NavBar = (props) => {
           </Link >
         </li>
       </ul>
-      <span className="nav-item">{props.username}</span>
+      <div>
+        <span className="nav-item">{props.username}</span>
+        <button onClick={()=>(props.dispatch(setAuthedUser('')))}>logout</button>
+      </div>
+      
     </div>
   );
 };

@@ -43,7 +43,10 @@ class Login extends React.Component{
             return <Redirect to='/'/>
         }
         return (
-            <div className='add-question'>
+            <div>
+                <h1>Login</h1>
+                <div className='add-question'>
+                
             <select onChange={this.handleChange} defaultValue="">
                 <option key = '0' value= ""disabled>select user</option>
             {this.props.users ===null ? null :
@@ -54,6 +57,8 @@ class Login extends React.Component{
             </select>
             <input type="submit" value="login" onClick={this.handleSubmit}/>
           </div>
+            </div>
+            
         );
     }
 }

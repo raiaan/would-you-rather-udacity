@@ -1,6 +1,7 @@
 import React from 'react';
 import { _saveQuestion } from "../utils/_DATA";
-import { connect } from "react-redux";
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {addQuestion} from '../actions/questions'
 class Add extends React.Component{
     constructor(props){
@@ -8,6 +9,7 @@ class Add extends React.Component{
         this.state = {
             optionOneText: '',
             optionTwoText: '',
+            added:false,
             author : this.props.author
         };
 
@@ -34,8 +36,11 @@ class Add extends React.Component{
             optionTwoText: this.state.optionTwoText,
             author: this.state.author
         }).then((res)=>this.props.dispatch(addQuestion(res)))
+        this.setState({added : true })
     }
     render(){
+        if(this.state.added)
+        return <Redirect to='/' />
         return (
           <form onSubmit={this.handleSubmit} className="add-question">
               <h1>Would You Rather</h1>
