@@ -5,17 +5,15 @@ import Answered from './answered';
 import Add from './add'
 import QuestionPage from "./questionDetail";
 import {connect} from 'react-redux'
-import { BrowserRouter as Router, Route ,Redirect} from 'react-router-dom'
+import { BrowserRouter as Router,Switch, Route ,Redirect} from 'react-router-dom'
 import LoadingBar from "react-redux-loading";
 import Login from './login'
 import LeaderBoard from './leaderBoard'
-import { dispatch } from 'rxjs/internal/observable/range';
 class App extends React.Component {
 	render(){
     const {authedUser} = this.props
     
 		return (
-      <Router >
           <div className='container'>
            {
              authedUser? <NavBar username = {this.props.users[authedUser]['name']} dispatch={this.props.dispatch}/>:null
@@ -23,7 +21,8 @@ class App extends React.Component {
           <LoadingBar />
             
              <div>
-              <Route path='/' exact 
+              <Switch>
+              <Route path='/' exact
               render={()=>(authedUser ?<Unanswered />:
                       <Redirect to={{
                         pathname: '/login',
@@ -55,10 +54,10 @@ class App extends React.Component {
                     }} /> 
                      )} />
               <Route path='/login' component={Login} />
+              </Switch>
             </div>
               
           </div>
-      </Router>
     );
 	}
   

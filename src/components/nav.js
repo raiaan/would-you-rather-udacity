@@ -14,17 +14,17 @@ export const NavBar = (props) => {
           </Link >
         </li>
         <li className="nav-item">
-          <Link  to="answered" className="nav-link">
+          <Link  to="/answered" className="nav-link">
             answered
           </Link >
         </li>
         <li className="nav-item">
-          <Link  to="leaderboard" className="nav-link">
+          <Link  to="/leaderboard" className="nav-link">
           Leaderboard
           </Link >
         </li>
         <li className="nav-item">
-          <Link  to="add" className="nav-link">
+          <Link  to="/add" className="nav-link">
             add new pool
           </Link >
         </li>
